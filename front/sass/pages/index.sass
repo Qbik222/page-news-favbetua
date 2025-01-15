@@ -89,6 +89,7 @@ body
     width: 100%
     position: relative
     margin-bottom: 26px
+    font-weight: normal
     &::after
       content: ''
       position: absolute
@@ -130,6 +131,15 @@ body
       width: 100%
       margin-bottom: 23px
       overflow: hidden
+      position: relative
+      cursor: pointer
+      &__link
+        display: block
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
       &__left
         position: relative
         z-index: 1
@@ -175,6 +185,7 @@ body
         .h2
           font-family: $font-robotoCondensed-bold
           font-size: 32px
+          font-weight: normal
           color: $light-blue
           align-self: stretch
           margin-bottom: 8px
@@ -255,6 +266,13 @@ body
         //&:nth-child(4),
         //&:nth-child(5)
         //  display: none
+        &-link
+          display: block
+          position: absolute
+          top: 0
+          left: 0
+          width: 100%
+          height: 100%
         &-img
           width: 100%
           height: auto
@@ -272,6 +290,7 @@ body
             font-family: $font-robotoCondensed-bold
             color: $light-blue
             font-size: 18px
+            font-weight: normal
             align-self: stretch
             overflow: hidden
             word-wrap: break-word
