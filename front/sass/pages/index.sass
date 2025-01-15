@@ -12,17 +12,52 @@ $font-robotoCondensed-bold: RobotoCondensed-Bold, sans-serif //700
 $font-robotoCondensed-medium: RobotoCondensed-Medium, sans-serif //500
 $font-robotoCondensed-regular: RobotoCondensed-Regular, sans-serif //400
 
+.dark-btn
+  position: absolute
+  right: 0
+  top: 0
+  width: 50px
+  height: 35px
+  cursor: pointer
+  z-index: 10
+
 body
   overscroll-behavior: none
-  background: $white-bg
+  //background: $white-bg
+  background: blue
   img
     max-width: 100%
     height: auto
 
 // DARK THEME
 .dark
-  .stub-page
+  .news-page
     background: $dark-theme-bg
+    .h1
+      color: $white
+      &::after
+        background: rgba(255, 255, 255, 0.14)
+    .filter
+      color: $white
+      &__item
+        background-color: $dark-theme-filter
+        color: $white
+    .content
+      .topNews
+        &__right
+          background-color: $dark-theme-dark-grey
+          .h2,
+          .newsInfo
+            color: $white
+      .news
+        &__item
+          &-txt
+            background-color: $dark-theme-dark-grey
+            .h3
+              color: $white
+    .newsDate
+      color: $white
+
 // END DARK THEME
 
 .news-page
@@ -74,7 +109,7 @@ body
       font-size: 14px
       color: $light-blue
       background-color: $light-grey
-      margin: 0 8px
+      margin-left: 8px
       padding: 9px 16px 11px
       border-radius: 4px
       transition: 0.2s ease
@@ -124,6 +159,12 @@ body
             display: block
             z-index: 1
             border-radius: 4px
+          .topImg
+            width: 100%
+          img
+            width: 100%
+            height: 100%
+            object-fit: cover
       &__right
         background-color: $light-grey
         padding: 24px 24px 24px 32px
@@ -144,6 +185,7 @@ body
           transition: 0.2s ease
         .newsInfo
           font-family: $font-robotoCondensed-regular
+          color: $light-blue
           font-size: 16px
           line-height: 26px
           max-height: 74px
@@ -208,15 +250,19 @@ body
           border-radius: 4px
         &:nth-child(3n)
           margin-right: 0
-        &:nth-child(4),
-        &:nth-child(5)
-          display: none
+        //&:nth-child(4),
+        //&:nth-child(5)
+        //  display: none
         &-img
           width: 100%
           height: auto
           aspect-ratio: 16 / 9
           overflow: hidden
           transition: 0.2s ease
+          img
+            width: 100%
+            height: 100%
+            object-fit: cover
         &-txt
           background-color: $light-grey
           padding: 8px 16px
@@ -226,6 +272,7 @@ body
             font-size: 18px
             align-self: stretch
             overflow: hidden
+            word-wrap: break-word
             display: -webkit-box
             -webkit-box-orient: vertical
             -webkit-line-clamp: 2
@@ -249,155 +296,8 @@ body
               display: block
               background: rgba(0, 0, 85, 0.20)
 
-
   .newsDate
     font-family: $font-robotoCondensed-regular
     font-size: 12px
     color: $light-blue
     margin-top: auto
-
-
-
-
-
-
-
-
-
-
-    //background: url("../img/bg-desk.png") no-repeat 14% -28%/cover
-    //@media screen and (max-width: 1024px)
-    //  background: url("../img/bg-desk.png") no-repeat 69% -28%/cover
-    //@media screen and (max-width: 600px) and (orientation: portrait)
-    //  background: url("../img/bg-mob.png") no-repeat 50% 25%/cover
-    //&::before
-    //  content: ''
-    //  position: absolute
-    //  bottom: 0
-    //  left: 0
-    //  width: 100%
-    //  height: 250px
-    //  background: linear-gradient(0deg, #000022, transparent 95%)
-    //  z-index: 1
-    //&__left
-    //  display: flex
-    //  flex-direction: column
-    //  justify-content: center
-    //  height: 100%
-    //  width: 375px
-    //  margin-left: 87px
-    //  min-width: 375px
-    //  z-index: 2
-    //  &-txt
-    //    color: $white
-    //    font-family: $font-robotoCondensed-bold
-    //    font-size: 24px
-    //    text-transform: uppercase
-    //    margin-bottom: 14px
-    //    margin-top: -50px
-    //  &-btn
-    //    padding: 15px 20px 14px
-    //    display: flex
-    //    justify-content: center
-    //    align-items: center
-    //    border-radius: 2px
-    //    background-color: $green
-    //    font-family: $font-robotoCondensed-bold
-    //    font-size: 18px
-    //    color: $blue
-    //    text-transform: uppercase
-    //    max-width: fit-content
-    //    &:hover
-    //      background-color: $green-hover
-    //&__right
-    //  position: relative
-    //  height: 100%
-    //  margin-left: -62px
-    //  margin-top: 32px
-    //  z-index: 2
-    //  .koala
-    //    margin-right: 41px
-    //    margin-top: -83px
-    //    width: 601px
-    //    height: 585px
-    //    background: url("../img/sem.png") no-repeat 50% 50%/cover
-    //    @media screen and (max-width: 600px)
-    //      background: url("../img/sem-mob.png") no-repeat 50% 50%/cover
-    //    @media screen and (max-width: 950px) and (max-height: 500px) and (orientation: landscape)
-    //      background: url("../img/sem-mob.png") no-repeat 50% 50%/cover
-    //.bubble
-    //  position: absolute
-    //  top: -125px
-    //  left: -27px
-    //  width: 284px
-    //  height: 224px
-    //  background: url("../img/bubble.png") no-repeat 0 0/cover
-    //  @media screen and (max-width: 600px) and (orientation: portrait)
-    //    background: url("../img/bubble-mob.png") no-repeat 0 0/cover
-    //  animation: neonBlink 2.5s linear forwards
-    //  &-txt
-    //    position: absolute
-    //    text-align: center
-    //    top: 92px
-    //    left: 57px
-    //    font-family: $font-gawaa-italic
-    //    font-size: 30px
-    //    text-shadow: 0px 0px 11px #00C6FF, 0px 0px 20px rgba(0, 198, 255, 0.62), 0px 0px 20px rgba(0, 198, 255, 0.62), 0px 0px 20px rgba(0, 198, 255, 0.62), 0px 0px 15px rgba(0, 198, 255, 0.62)
-    //    line-height: 22px
-    //    color: $white
-    //    transform: rotate(-6.478deg)
-    //    width: 164px
-    //.icons
-    //  position: absolute
-    //  top: 0
-    //  right: 0
-    //  &-top
-    //    position: absolute
-    //    top: -30px
-    //    right: 196px
-    //    background: url("../img/logo-top.png") no-repeat 50% 50%/cover
-    //    width: 55px
-    //    height: 50px
-    //    animation: floatUpDown2 2s ease-in-out infinite
-    //  &-marks
-    //    position: absolute
-    //    top: -15px
-    //    right: 85px
-    //    background: url("../img/marks.png") no-repeat 50% 50%/cover
-    //    width: 129px
-    //    height: 82px
-    //    animation: floatUpDown 3s ease-in-out infinite
-    //  &-bottom
-    //    position: absolute
-    //    bottom: -404px
-    //    right: 231px
-    //    background: url("../img/logo-bottom.png") no-repeat 50% 50%/cover
-    //    width: 128px
-    //    height: 98px
-    //    animation: floatUpDown 3s ease-in-out infinite
-    //  &-left
-    //    position: absolute
-    //    top: 208px
-    //    right: 439px
-    //    background: url("../img/logo-left.png") no-repeat 50% 50%/cover
-    //    width: 50px
-    //    height: 40px
-    //    animation: floatUpDown2 3s ease-in-out infinite
-
-//@keyframes floatUpDown
-//  0%, 100%
-//    transform: translateY(0)
-//  50%
-//    transform: translateY(-15px)
-//
-//@keyframes floatUpDown2
-//  0%, 100%
-//    transform: translateY(0)
-//  50%
-//    transform: translateY(-5px)
-//
-//@keyframes neonBlink
-//  0%, 20%, 40%, 100%
-//    opacity: 1
-//  10%, 35%
-//    opacity: 0
