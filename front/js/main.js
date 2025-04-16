@@ -1,5 +1,4 @@
 (function () {
-    // filter active
     let filterItem = document.querySelectorAll('.filter__item');
 
     filterItem.forEach(block => {
@@ -16,13 +15,14 @@
     const newsContainer = document.querySelector('.news');
     const newsItems = newsContainer.querySelectorAll('.news__item');
     const maxVisible = 6;
+    let currentIndex = maxVisible;
+    const step = 3; // Кількість новин, які показуються за один клік (1-3)
 
     if (newsItems.length > maxVisible) {
         newsItems.forEach((item, index) => {
             if (index >= maxVisible) item.style.display = 'none';
         });
 
-        // перевірка на існування кнопки перед створенням
         if (!document.querySelector('.news__show-more-btn')) {
             const btn = document.createElement('button');
             btn.textContent = 'Показати більше';
@@ -31,8 +31,14 @@
             newsContainer.after(btn);
 
             btn.addEventListener('click', () => {
-                newsItems.forEach(item => item.style.display = '');
-                btn.remove();
+                const nextIndex = Math.min(currentIndex + step, newsItems.length);
+                for (let i = currentIndex; i < nextIndex; i++) {
+                    newsItems[i].style.display = '';
+                }
+                currentIndex = nextIndex;
+                if (currentIndex >= newsItems.length) {
+                    btn.remove();
+                }
             });
         }
     }
